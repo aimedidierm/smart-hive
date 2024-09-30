@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserRole;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,11 @@ class AuthController extends Controller
             if ($passwordMatch) {
 
                 Auth::login($user);
-                return redirect("/admin");
+                if (Auth::user()->role == UserRole::ADMIN->value) {
+                    return redirect("/admin");
+                } else {
+                    return redirect("/client");
+                }
             } else {
                 return redirect(route('login'))->withErrors(['msg' => 'Incorect password']);
             }

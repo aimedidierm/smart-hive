@@ -24,6 +24,12 @@ Route::group(["prefix" => "auth", "as" => "auth."], function () {
 
 Route::group(["prefix" => "admin", "middleware" => "auth", "as" => "admin."], function () {
     Route::get('/', function () {
-        return view('dashboard');
+        return view('admin.dashboard');
+    });
+});
+
+Route::group(["prefix" => "client", "middleware" => "auth", "as" => "client."], function () {
+    Route::get('/', function () {
+        return view('client.dashboard');
     });
 });
