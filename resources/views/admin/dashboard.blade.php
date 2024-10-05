@@ -23,9 +23,9 @@
         <div class="bg-white p-6 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold text-green-600 text-center">Current Hive Weight 🏋️‍♂️</h2>
             <div class="flex justify-center items-center mt-4">
-                <div class="text-5xl font-bold text-orange-700 pulse">15kg</div>
+                <div class="text-5xl font-bold text-orange-700 pulse">10kg</div>
             </div>
-            <p class="text-center text-gray-500 mt-2">Target weight: 12kg - 20kg</p>
+            <p class="text-center text-gray-500 mt-2">Target weight: 1kg - 10kg</p>
         </div>
 
         <div class="bg-white p-6 rounded-lg shadow-md">
@@ -33,7 +33,7 @@
             <ul class="list-disc list-inside mt-4 text-red-500">
                 <li>⚠️ Temperature exceeds 36°C</li>
                 <li>⚠️ Humidity below 50%</li>
-                <li>⚠️ Weight dropped below 12kg</li>
+                <li>⚠️ Weight dropped below 1kg</li>
             </ul>
         </div>
     </div>
@@ -78,21 +78,21 @@
                         <td class="border px-4 py-2">12:00 PM</td>
                         <td class="border px-4 py-2">35°C</td>
                         <td class="border px-4 py-2">56%</td>
-                        <td class="border px-4 py-2">15kg</td>
+                        <td class="border px-4 py-2">5kg</td>
                         <td class="border px-4 py-2 text-green-500">Normal</td>
                     </tr>
                     <tr class="bg-white">
                         <td class="border px-4 py-2">12:30 PM</td>
                         <td class="border px-4 py-2">37°C</td>
                         <td class="border px-4 py-2">52%</td>
-                        <td class="border px-4 py-2">14kg</td>
+                        <td class="border px-4 py-2">4kg</td>
                         <td class="border px-4 py-2 text-red-500">Alert</td>
                     </tr>
                     <tr class="bg-gray-50">
                         <td class="border px-4 py-2">1:00 PM</td>
                         <td class="border px-4 py-2">34°C</td>
                         <td class="border px-4 py-2">54%</td>
-                        <td class="border px-4 py-2">15kg</td>
+                        <td class="border px-4 py-2">5kg</td>
                         <td class="border px-4 py-2 text-green-500">Normal</td>
                     </tr>
                 </tbody>
