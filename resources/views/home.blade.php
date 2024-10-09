@@ -70,6 +70,62 @@
         </div>
     </section>
 
+    <section id="sales" class="py-16 bg-green-50">
+        <div class="container mx-auto">
+            <h3 class="text-2xl text-center font-semibold text-green-700">Available Sales</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                @foreach ($sales as $sale)
+                <div class="p-6 bg-white rounded-lg shadow-lg">
+                    <h4 class="text-xl font-bold text-green-600">{{ $sale->amount }} Rwf</h4>
+                    <p class="mt-4">{{ $sale->title }}</p>
+                    <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        onclick="document.getElementById('requestModal-{{ $sale->id }}').classList.remove('hidden')">
+                        Submit Request
+                    </button>
+
+                    <!-- Modal -->
+                    <div id="requestModal-{{ $sale->id }}"
+                        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+                        <div class="bg-white rounded-lg p-6 w-96">
+                            <div class="flex justify-between items-center mb-4">
+                                <h5 class="text-lg font-bold">Submit Request for {{ $sale->title }}</h5>
+                                <button class="text-gray-500 hover:text-gray-700"
+                                    onclick="document.getElementById('requestModal-{{ $sale->id }}').classList.add('hidden')">
+                                    &times;
+                                </button>
+                            </div>
+                            <form action="{{ route('orderRequest') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="sale_id" value="{{ $sale->id }}">
+                                <div class="mb-4">
+                                    <label for="names" class="block text-sm font-medium text-gray-700">
+                                        Names</label>
+                                    <input class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" id="names"
+                                        type="text" name="names" required></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">
+                                        phone</label>
+                                    <input class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" id="phone"
+                                        type="number" name="phone" required></textarea>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="requestDetails" class="block text-sm font-medium text-gray-700">More
+                                        Details</label>
+                                    <textarea class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+                                        id="requestDetails" name="request_details" rows="3"></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <section class="py-16 bg-green-700 text-white text-center">
         <h3 class="text-3xl font-semibold">Get Started with Smart Hive Today! 🏠</h3>
         <p class="mt-4 text-xl">Join a community of beekeepers making hive management smarter and easier.</p>
