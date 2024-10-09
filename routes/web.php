@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\TrainingController;
@@ -35,9 +36,7 @@ Route::group(["prefix" => "auth", "as" => "auth."], function () {
 });
 
 Route::group(["prefix" => "admin", "middleware" => "auth", "as" => "admin."], function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/', [HardwareController::class, 'index']);
     Route::resource('/trainings', TrainingController::class)->only('index', 'store', 'destroy');
     Route::resource('/clients', ClientController::class)->only('index', 'store', 'destroy');
     Route::get('/training-details/{id}', function ($id) {
@@ -48,9 +47,7 @@ Route::group(["prefix" => "admin", "middleware" => "auth", "as" => "admin."], fu
 });
 
 Route::group(["prefix" => "client", "middleware" => "auth", "as" => "client."], function () {
-    Route::get('/', function () {
-        return view('client.dashboard');
-    });
+    Route::get('/', [HardwareController::class, 'index']);
     Route::resource('/sales', SalesController::class)->only('index', 'store', 'destroy');
     Route::resource('/orders', OrderController::class)->only('index');
     Route::get('/training-details/{id}', function ($id) {
