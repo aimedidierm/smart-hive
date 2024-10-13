@@ -54,4 +54,5 @@ Route::group(["prefix" => "client", "middleware" => "auth", "as" => "client."], 
         $training = Training::find($id);
         return view('training-details', ['training' => $training]);
     });
+    Route::resource('/trainings', TrainingController::class)->only('index');
 });
