@@ -18,11 +18,11 @@ const int LOADCELL_SCK_PIN = D1;   // GPIO5
 HX711 scale;
 
 // Wi-Fi Credentials
-const char* ssid = "Balance";
-const char* password = "balance1234";
+const char* ssid = "Bees";
+const char* password = "123456789s";
 
 // Server URL
-const char* serverName = "http://didier.requestcatcher.com/";
+const char* serverName = "http://192.168.43.203:8000/api/hardware";
 
 void setup() {
   Serial.begin(115200);
