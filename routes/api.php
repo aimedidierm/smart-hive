@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post("/hardware", [HardwareController::class, 'store']);
+Route::get('/latest-readings', [HardwareController::class, 'getLatestReadings']);

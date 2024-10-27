@@ -22,7 +22,7 @@ const char* ssid = "Bees";
 const char* password = "123456789s";
 
 // Server URL
-const char* serverName = "http://192.168.43.203:8000/api/hardware";
+const char* serverName = "http://smart.plantymart.xyz/api/hardware";
 
 void setup() {
   Serial.begin(115200);

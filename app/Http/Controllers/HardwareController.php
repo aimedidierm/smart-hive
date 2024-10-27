@@ -22,6 +22,12 @@ class HardwareController extends Controller
         }
     }
 
+    public function getLatestReadings()
+    {
+        $data = Hardware::latest()->take(10)->get();
+        return response()->json($data);
+    }
+
     public function store(HardwareStatusRequest $request)
     {
         Hardware::create([
